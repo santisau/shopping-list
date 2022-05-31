@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ThemeProvider from "./providers/ThemeProvider";
+import List from "./components/molecules/List";
+import { IListEntry } from "./components/molecules/ListEntry/ListEntry";
+
+const base_items = [
+  {
+    item: "patata",
+    category: "verdura",
+  },
+  {
+    item: "judia",
+    category: "verdura",
+  },
+  {
+    item: "pera",
+    category: "fruta",
+  },
+] as IListEntry[];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <header className="App-header">
+          <List defaultItems={base_items} />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
